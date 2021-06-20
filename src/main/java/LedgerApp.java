@@ -16,14 +16,14 @@ public class LedgerApp {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.printf("result for %s%n",SAMPLE_INPUT1);
-        processFile(SAMPLE_INPUT1);
-        System.out.printf("%nresult for %s%n",SAMPLE_INPUT2);
-        processFile(SAMPLE_INPUT2);
+        String fileName = args[0];
+        //System.out.printf("result for %s%n",fileName);
+        processFile(fileName);
+
     }
 
     static void processFile(String fileName) throws IOException {
-        File file = new File(BASE_RESOURCE_PATH + fileName);
+        File file = new File(fileName);
         final InputStream targetStream =
                 new DataInputStream(new FileInputStream(file));
 
