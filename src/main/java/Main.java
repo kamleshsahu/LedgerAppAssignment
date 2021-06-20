@@ -4,13 +4,13 @@ import service.impl.LoanServiceImpl;
 
 import java.io.*;
 
-public class LedgerApp {
+public class Main {
     private static final String BASE_RESOURCE_PATH = "src/main/resources/";
     private static final String SAMPLE_INPUT1 = "sampleInput1.txt";
     private static final String SAMPLE_INPUT2 = "sampleInput2.txt";
     private final LoanService loanService;
 
-    public LedgerApp(LoanService loanService) {
+    public Main(LoanService loanService) {
         this.loanService = loanService;
     }
 
@@ -29,11 +29,11 @@ public class LedgerApp {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(targetStream));
         String line;
-        LedgerApp ledgerApp = new LedgerApp(new LoanServiceImpl());
+        Main main = new Main(new LoanServiceImpl());
 
         while ((line = br.readLine()) != null) {
             String[] data = line.split(" ");
-            ledgerApp.performOperation(Operation.valueOf(data[0]), data);
+            main.performOperation(Operation.valueOf(data[0]), data);
         }
     }
 
